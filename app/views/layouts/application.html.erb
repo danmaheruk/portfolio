@@ -9,8 +9,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+    <body>
+        <header>
+          <%= render "layouts/navigation" %>
+          </header>
+        <main role="main">
+      <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <div class="content">
+        <%= yield %>
+      </div>
+      </main>
 
-  <body>
-    <%= yield %>
-  </body>
+
+
+
+
+      <%= render "layouts/footer" %>
+
+    </body>
 </html>
